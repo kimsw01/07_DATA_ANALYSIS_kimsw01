@@ -116,11 +116,11 @@ http://www.yes24.com/Product/Search?domain=BOOK&query=9791190090018
 
 <!-- 교재에서 안내된 과정을 직접 실행해본 뒤, 진행 결과가 보이도록 4~6장의 스크린샷을 캡처하여 아래에 첨부해주세요.-->
 
-![alt text](<스크린샷 2026-03-16 043051.png>)
-![alt text](<화면 캡처 2026-03-16 044811.png>)
-![alt text](<화면 캡처 2026-03-16 045202.png>)
-![alt text](<화면 캡처 2026-03-16 045622.png>)
-![alt text](<화면 캡처 2026-03-16 050911.png>)
+![alt text](<picture/스크린샷 2026-03-16 043051.png>)
+![alt text](<picture/화면 캡처 2026-03-16 044811.png>)
+![alt text](<picture/화면 캡처 2026-03-16 045202.png>)
+![alt text](<picture/화면 캡처 2026-03-16 045622.png>)
+![alt text](<picture/화면 캡처 2026-03-16 050911.png>)
 
 <br>
 <br>
