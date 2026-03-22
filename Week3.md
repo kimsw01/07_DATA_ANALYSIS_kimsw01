@@ -40,16 +40,129 @@ https://www.youtube.com/watch?v=hhbzUEQWdTg&list=PLVsNizTWUw7FGzSRCkQrPEEe-ljVXg
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
+### 데이터 정제
+- 열 삭제하기
+~~~
+ns_book = ns_df.loc[:, '번호': '등록일자']
+ns_book.head()
+
+
+- loc 메서드와 불리언 배열
+
+selected_columns = ns_df.columns != 'Unnamed: 13'
+ns_book = ns_df.loc[:, selected_columns]
+ns_book.head()
+
+
+- drop 메서드
+
+ns_book = ns_df.drop('Unnamed: 13' , axis=1)
+ns_book.head()
+
+
+- dropna 메서드
+
+ns_book = ns_df.dropna(axis=1)
+ns_book.head()
+
+ns_book = ns_df.dropna(axis=1, how = 'all')
+ns_book.head()
+~~~
+
+- 행 삭제하기
+~~~
+ns_book2 = ns_book.drop([0,1])
+ns_book2.head()
+
+
+- [] 연산자와 불리언 배열
+
+
+selected_rows = ns_df['출판사'] == '한빛미디어'
+ns_book2 = ns_book[selected_rows]
+ns_book2.head()
+
+ns_book2 = ns_book[ns_book['대출건수']> 1000]
+ns_book2.head()
+
+
+- 중복된 행 찾기
+
+
+dup_rows = ns_book.duplicated(subset = ['도서명', '저자', 'ISBN'],keep=False)
+ns_book3 = ns_book[dup_rows]
+ns_book3.head()
+
+
+- 그룹별로 모으기
+
+
+loan_count = count_df.groupby(by=['도서명', '저자', 'ISBN', '권'], dropna = False).sum()
+loan_count.head()
+~~~
+
 ## 02. 잘못된 데이터 수정하기
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
+### 데이터 탐색
 
+- info 메서드 - 행과 열 개수, 데이터 타입, 비어있지 않은 행 개수, 사용하는 총 데이터 타입, 메모리 사용량 등
+
+- isna 메서드 - ns_book.isna().sum() - 결측치 확인용
+
+- NaN - 파이썬의 결측값 표현 방법
+
+~~~
+ns_book4.loc[0, '도서권수'] = None
+ns_book4['도서권수'].isna().sum()
+
+import numpy as np
+ns_book4.loc[0, '부가기호'] = np.nan
+~~~
+
+### 데이터 수정
+
+- fillna() 메서드 - 결측치 처리
+
+~~~
+그냥 처리 : df.fillna('없음')
+
+한 컬럼만 처리 : df['컬럼'].fillna('없음')
+df({'컬럼' : '없음'})
+~~~
+
+- replace() 메서드
+
+~~~
+df.replace(np.nan, '없음')
+df.replace([np.nan, '2021'], ['없음','21'])
+
+
+- 정규 표현식 : \d
+
+df.replace({'컬럼' : {r'\d{2}(\d{2})' :r'\1'}}, regex=True)[100:102]
+
+- 정규 표현식 : .
+~~~
+
+- contains() 메서드
+~~~
+num = df['컬럼'].str.contains('\D', na=True)
+
+books = book.replace({'컬럼' : '.*(\d{4}).*}, r'\1', regex=True)
+~~~
 # 2️⃣ 수행 인증
 
 <!-- 교재에서 안내된 과정을 직접 실행해본 뒤, 진행 결과가 보이도록 4~6장의 스크린샷을 캡처하여 아래에 첨부해주세요.-->
 <!-- 이번 주차에는 API를 발급받는 과정도 포함하여 첨부해주세요.-->
 
+![alt text](picture/3주차_1.png)
+![alt text](picture/3주차_2.png)
+![alt text](picture/3주차_3.png)
+![alt text](picture/3주차_4.png)
+![alt text](picture/3주차_5.png)
+![alt text](picture/3주차_6.png)
 
 <br>
 <br>
@@ -118,7 +231,9 @@ https://www.youtube.com/watch?v=hhbzUEQWdTg&list=PLVsNizTWUw7FGzSRCkQrPEEe-ljVXg
 ```
 
 ```
-여기에 선택한 답과 그 이유를 간단히 서술해주세요!
+정답은 3.
+df3을 보면 df1에서는 col1, df2에서는 col3에 알파벳이 들어가 있어서 컬럼을 사용하고 싶지만 컬럼 이름이 달라서 그냥 사용할 수 없음.
+따라서 이름 지정을 해주고, 한 쪽에만 데이터가 있어도 모두 사용하는 outer join 방식을 사용하였음.
 ```
 
 
