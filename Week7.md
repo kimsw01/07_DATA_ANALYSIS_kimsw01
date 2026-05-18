@@ -279,11 +279,11 @@ mean_absolute_error(y_test, y_pred)
 
 <!-- 교재에서 안내된 과정을 직접 실행해본 뒤, 진행 결과가 보이도록 4~6장의 스크린샷을 캡처하여 아래에 첨부해주세요.-->
 
-![alt text](picture\week7_1.png)
-![alt text](picture\week7_2.png)
-![alt text](picture\week7_3.png)
-![alt text](picture\week7_4.png)
-![alt text](picture\week7_5.png)
+![alt text](picture/week7_1.png)
+![alt text](picture/week7_2.png)
+![alt text](picture/week7_3.png)
+![alt text](picture/week7_4.png)
+![alt text](picture/week7_5.png)
 
 
 <br>
